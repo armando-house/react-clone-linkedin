@@ -22,14 +22,7 @@ var Skills = React.createClass({
 
 	componentWillReceiveProps: function(nextProps){
 		this.userRef = firebase.database().ref().child('users/'+ nextProps.pageID);
-        this.userRef.on("value", snap => {
-        	var user = snap.val();
-			if(user.skills){
-				this.setState({skills: user.skills});
-			}else{
-				this.setState({skills: ""});
-			}
-        });
+        
 	},
 
 	handleClickEdit: function(){
