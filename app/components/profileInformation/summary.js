@@ -20,7 +20,17 @@ var Summary = React.createClass({
         });
 	},
 
-	
+	componentWillReceiveProps: function(nextProps){
+        this.userRef = firebase.database().ref().child('users/'+ nextProps.pageID);
+        this.userRef.on("value", snap => {
+        	var user = snap.val();
+			if(user.summary){
+				this.setState({summary: user.summary});
+			}else{
+				this.setState({summary: ""});
+			}
+        });
+	},
 
 	componentWillUnmount: function(){
 		this.userRef.off();
