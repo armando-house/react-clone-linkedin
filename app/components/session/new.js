@@ -13,29 +13,7 @@ var LogInForm = React.createClass({
 	//logs the user in with the firebase method and reroutes to the home page
 	handleLogIn: function(){
 
-		var that = this;
-		var email = this.refs.email.value;
-		var password = this.refs.password.value;
-
-		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-  			var errorCode = error.code;
-  			var errorMessage = error.message;
-
-  			//sets hasError and the errorMsg if an error occured to show in the alerts
-  			if(error){
-  				that.setState({hasError: true});
-  				that.setState({errorMsg: "Invalid email or password combination."});
-  			}
-		});
-
-		//if successfully logged in, reroute to home
-		this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-  			if (user) {
-				hashHistory.push("/");
-  			} else {
-		    	hashHistory.push("/login");
-  			}
-		});
+		
 	},
 
 	componentWillUnmount: function(){
