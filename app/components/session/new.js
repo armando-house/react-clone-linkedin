@@ -38,7 +38,12 @@ var LogInForm = React.createClass({
 		});
 	},
 
-	
+	componentWillUnmount: function(){
+		if (typeof this.unsubscribe == 'function')
+		{
+			this.unsubscribe(); 
+		}
+	},
 
 	//if user pressed "Enter" while filling out his/her info, act as if Login was clicked
 	handleKeyPress: function(e){
