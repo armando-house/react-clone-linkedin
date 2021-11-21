@@ -13,7 +13,7 @@ var AdvancedSearch = React.createClass({
 		this.state.results.splice(0, this.state.results.length);
 		this.setState({results: this.state.results});
 
-		
+		this.userRef = firebase.database().ref().child('users');
 		this.userRef.on("child_added", snap=>{
 			var user = snap.val();
 
