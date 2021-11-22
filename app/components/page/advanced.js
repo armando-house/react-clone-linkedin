@@ -33,19 +33,6 @@ var AdvancedSearch = React.createClass({
 								numYears -= 1;
 							}
 
-							if(numYears >= this.refs.yearsOfExperience.value){
-								this.educationRef = firebase.database().ref().child('user-education/' + user.id);
-								this.educationRef.on("child_added", snap =>{
-									var educationUser = snap.val();
-
-									if(educationUser.school.toLowerCase().indexOf(this.refs.school.value.toLowerCase()) >= 0 && educationUser.major.toLowerCase().indexOf(this.refs.major.value.toLowerCase()) >= 0 && educationUser.degree.toLowerCase().indexOf(this.refs.degree.value.toLowerCase()) >= 0){
-										if(this.state.results.indexOf(user) < 0){
-											this.state.results.push(user);
-											this.setState({results: this.state.results});
-										}
-									}
-								});
-							}
 						}
 					});
 				//if any education fields were filled out
