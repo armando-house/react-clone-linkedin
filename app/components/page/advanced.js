@@ -68,7 +68,9 @@ var AdvancedSearch = React.createClass({
 						if(experienceUser.employer.toLowerCase().indexOf(this.refs.company.value.toLowerCase()) >= 0 && experienceUser.position.toLowerCase().indexOf(this.refs.position.value.toLowerCase()) >= 0){
 							var numYears = parseInt(experienceUser.endDate.substring(0,4)) - parseInt(experienceUser.startDate.substring(0,4));
 							var numMonths = parseInt(experienceUser.endDate.substring(5,7)) - parseInt(experienceUser.startDate.substring(5,7));
-							
+							if(numMonths < 0){
+								numYears -= 1;
+							}
 							if(numYears >= this.refs.yearsOfExperience.value){
 								this.state.results.push(user);
 								this.setState({results: this.state.results});
