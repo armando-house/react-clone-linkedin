@@ -16,12 +16,7 @@ var Reply = React.createClass({
     },
     //just to check if the user presses "Enter" while typing in a text field so that it acts as if he/she clicked "Post"
     handleKeyPress: function(e){
-        if(e.key == 'Enter'){
-            try{
-                this.handlePostReply();
-            }
-            catch(e){};
-        }
+        
     },
 
     componentWillMount: function(){
