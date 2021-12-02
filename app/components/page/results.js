@@ -14,14 +14,7 @@ var Results = React.createClass({
 		this.setState({prop_name: this.props.params.name}); //to make sure we don't head over to compWillReceiveProps with the same prop name
 
 		this.userRef = firebase.database().ref().child('users').orderByChild('last');
-        this.userRef.on('child_added', snap =>{
-            var user = snap.val();
-       	    if((user.first + " " + user.last).toLowerCase().indexOf(this.props.params.name.toLowerCase()) >= 0){
-       	    	user.id = snap.ref.key;
-	       	    this.state.users.push(user);
-	            this.setState({users: this.state.users});
-       	    }
-        });
+        
 	},
 
 	componentWillReceiveProps: function(nextProps){
