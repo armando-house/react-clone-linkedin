@@ -14,7 +14,9 @@ var Connection = React.createClass({
 	},
 
 	componentDidMount: function(){
-		
+		this.setState({currentUserID: this.props.currentUserID});
+		this.setState({pageID: this.props.pageID});
+		this.setState({isCurrentUser: this.props.isCurrentUser});
 
 		if(!this.props.isCurrentUser){
 			this.connectionRef = firebase.database().ref().child('connections/' + this.props.currentUserID + '/' + this.props.pageID);
