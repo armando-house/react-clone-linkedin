@@ -13,7 +13,12 @@ var Companies = React.createClass({
 
 	componentWillMount: function(){
 		this.companyRef = firebase.database().ref('users').orderByChild("recruiter").equalTo(true);
-		
+		this.companyRef.on("child_added", snap=>{
+			company = snap.val();
+			company.user_id = snap.ref.key;
+			this.state.companies.push(company);
+			this.setState({companies: this.state.companies});
+		});
 	},
 
 	componentWillUnmount: function(){
