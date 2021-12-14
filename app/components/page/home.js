@@ -19,14 +19,7 @@ var Home = React.createClass({
         this.postsRef = firebase.database().ref().child('posts').orderByChild("created_at");
         //for each child added to post, push to postArray
 
-        this.unsubscribe = firebase.auth().onAuthStateChanged(user =>{
-            if(user){
-                this.userRef = firebase.database().ref('users').child(firebase.auth().currentUser.uid);
-                this.userRef.on("value", snap=>{
-                    this.setState({username: snap.val().first + " " + snap.val().last});
-                });
-            }
-        });
+        
 
         this.postsRef.on("child_added", snap => {
             var post = snap.val();
