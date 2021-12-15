@@ -14,7 +14,6 @@ var Search = React.createClass({
     },
 
     handleAdvancedSearchForm: function(){
-        hashHistory.push('/advanced');
     },
 
     componentWillMount:function(){
