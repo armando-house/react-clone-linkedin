@@ -23,9 +23,6 @@ var endorsement = React.createClass({
 	},
 	
 	componentDidMount: function(){
-		this.userRef = firebase.database().ref().child('users/'+this.props.currentUserID);
-		this.endorsementRef = firebase.database().ref().child('user-endorsement/'+this.state.pageID);
-		this.connectionRef = firebase.database().ref().child('connections/'+this.state.pageID+"/"+this.state.currentUserID);
 		
 		this.userRef.on("value", snap=>{
 			var user = snap.val();
