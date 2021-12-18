@@ -17,7 +17,7 @@ var Experience = React.createClass({
 				this.state.experiences.push(experience);
 				this.setState({experiences: this.state.experiences});
 			}
-			if(experience == null){
+			if(experience){
 				experience.key = snap.ref.key;
 				this.state.experiences.push(experience);
 				this.setState({experiences: this.state.experiences});
