@@ -17,11 +17,6 @@ var Experience = React.createClass({
 				this.state.experiences.push(experience);
 				this.setState({experiences: this.state.experiences});
 			}
-			if(experience){
-				experience.key = snap.ref.key;
-				this.state.experiences.push(experience);
-				this.setState({experiences: this.state.experiences});
-			}
         });
 
         this.experienceRefChanged = firebase.database().ref().child('user-experience/'+this.props.pageID);
