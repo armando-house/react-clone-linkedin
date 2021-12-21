@@ -12,7 +12,11 @@ var Interests = React.createClass({
         this.userRef = firebase.database().ref().child('users/'+this.props.pageID);
         this.userRef.on("value", snap => {
         	var user = snap.val();
-			
+			if(user.interests){
+				this.setState({interests: user.interests});
+			}else{
+				this.setState({interests: ""});
+			}
         });
 	},
 
