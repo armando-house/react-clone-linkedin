@@ -20,22 +20,7 @@ var JobListings = React.createClass({
         });
 
         this.joblistingRefChanged = firebase.database().ref().child('user-joblisting/'+this.props.pageID);
-        this.joblistingRefChanged.on("child_changed", snap => {
-        	var joblisting = snap.val();
-			if(joblisting){
-				joblisting.key = snap.ref.key;
-
-				var index;
-				for(var i = 0; i < this.state.joblistings.length; i++){
-					if(this.state.joblistings[i].key == joblisting.key){
-						index = i;
-					}
-				}
-
-				this.state.joblistings.splice(index, 1, joblisting);
-				this.setState({joblistings: this.state.joblistings});
-			}
-        });
+        
 
         this.joblistingRefRemoved = firebase.database().ref().child('user-joblisting/'+this.props.pageID);
         this.joblistingRefRemoved.on("child_removed", snap => {

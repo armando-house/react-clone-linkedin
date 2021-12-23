@@ -20,8 +20,6 @@ var Interests = React.createClass({
         });
 	},
 
-	
-
 	componentWillReceiveProps: function(nextProps){
 		this.userRef = firebase.database().ref().child('users/'+ nextProps.pageID);
         this.userRef.on("value", snap => {
