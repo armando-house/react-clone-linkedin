@@ -31,12 +31,7 @@ var Profile = React.createClass({
         });
 
 		//gets the name of the user and whether or not he/she is a recruiter--not yet used
-		this.userRef = firebase.database().ref().child('users/'+this.props.params.id);
-		this.userRef.on("value", snap=>{
-			var user = snap.val();
-			this.setState({user_name: user.first + " " + user.last});
-			this.setState({recruiter: user.recruiter});
-		});
+		
 	},
 
 	componentWillReceiveProps: function(nextProps){
