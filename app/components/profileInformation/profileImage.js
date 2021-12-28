@@ -38,7 +38,6 @@ var UploadImage = React.createClass({
         var that = this;
 
         //does the same as component will mount, but updates to the correct param user
-        this.userRef = firebase.database().ref().child('users/'+ nextProps.pageID);
         this.userRef.on("value", snap=>{
             var user = snap.val();
             this.setState({userData: user});
